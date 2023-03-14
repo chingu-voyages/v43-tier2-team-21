@@ -1,0 +1,8 @@
+{
+  "name": "Skill Tracker",
+  "short_name": "SkillTracker",
+  "icons": [{ "src": "" }],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}
