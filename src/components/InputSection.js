@@ -8,6 +8,8 @@ const InputSection = ({
   placeholder,
   name,
   error,
+  min,
+  max,
 }) => {
   return (
     <section className="flex flex-col my-3">
@@ -23,6 +25,8 @@ const InputSection = ({
           onChange={changeHandler}
           onBlur={blurHandler}
           className="p-1 mt-1"
+          min={min}
+          max={max}
         />
       </label>
       {hasError && <p className="text-red-500">{error}</p>}
