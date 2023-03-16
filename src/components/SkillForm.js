@@ -28,6 +28,7 @@ const SkillForm = ({ prepopulatedData }) => {
   const skillNameHasError = skillNameTouched && skillName.length === 0;
   const timeGoalHasError = timeGoalTouched && !timeGoal;
   const pointGoalHasError = pointGoalTouched && !pointGoal;
+  const anyErrors = skillNameHasError || timeGoalHasError || pointGoalHasError;
 
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -96,7 +97,7 @@ const SkillForm = ({ prepopulatedData }) => {
         min={1}
         max={14}
       />
-      {triedSubmit && (
+      {triedSubmit && anyErrors && (
         <p className="mb-2">Please fix issues above before submitting.</p>
       )}
       <button className="bg-white p-2 rounded shadow-sm hover:bg-yellow-100">
