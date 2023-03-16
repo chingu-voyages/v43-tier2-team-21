@@ -1,10 +1,13 @@
+import SkillForm from "./components/SkillForm";
+import { Routes, Route } from "react-router";
+import Dashboard from "./pages/Dashboard";
 
-import{ SkillCard } from "./SkillCard"
 export default function App() {
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">Test</h1>
-      <SkillCard />
-    </div>
+    <Routes>
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/addskill" element={<SkillForm />} />
+      <Route path="*" element={<Dashboard />} />
+    </Routes>
   );
 }
