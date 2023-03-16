@@ -10,8 +10,10 @@ const initialState = {
   pointGoalTouched: false,
 };
 
-const SkillForm = () => {
-  const [skillData, setSkillData] = React.useState(initialState);
+const SkillForm = ({ prepopulatedData }) => {
+  const [skillData, setSkillData] = React.useState(
+    prepopulatedData ? prepopulatedData : initialState
+  );
   const [triedSubmit, setTriedSubmit] = React.useState(false);
 
   const {
@@ -57,7 +59,9 @@ const SkillForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="bg-sky-100 p-4">
-      <h2 className="text-lg font-bold">Add New Skill</h2>
+      <h2 className="text-lg font-bold">
+        {prepopulatedData ? "Edit Skill Preferences" : "Add New Skill"}
+      </h2>
       <InputSection
         name="skillName"
         value={skillName}
@@ -92,7 +96,7 @@ const SkillForm = () => {
         <p className="mb-2">Please fix issues above before submitting.</p>
       )}
       <button className="bg-white p-2 rounded shadow-sm hover:bg-yellow-100">
-        Add Skill
+        {prepopulatedData ? "Edit Skill" : "Add Skill"}
       </button>
     </form>
   );
