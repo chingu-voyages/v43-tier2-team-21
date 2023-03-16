@@ -4,9 +4,9 @@ import InputSection from "./InputSection";
 const initialState = {
   skillName: "",
   skillNameTouched: false,
-  timeGoal: null,
+  timeGoal: 0,
   timeGoalTouched: false,
-  pointGoal: null,
+  pointGoal: 0,
   pointGoalTouched: false,
 };
 
@@ -25,6 +25,11 @@ const SkillForm = ({ prepopulatedData }) => {
     pointGoalTouched,
   } = skillData;
 
+  const skillNameHasError = skillNameTouched && skillName.length === 0;
+  const timeGoalHasError = timeGoalTouched && !timeGoal;
+  const pointGoalHasError = pointGoalTouched && !pointGoal;
+  const anyErrors = skillNameHasError || timeGoalHasError || pointGoalHasError;
+
   const handleChange = (e) => {
     const { value, name } = e.target;
     setSkillData((prev) => ({ ...prev, [name]: value }));
@@ -42,7 +47,7 @@ const SkillForm = ({ prepopulatedData }) => {
       timeGoalTouched: true,
       pointGoalTouched: true,
     }));
-    if (skillNameHasError || timeGoalHasError || pointGoalHasError) {
+    if (!timeGoal || !pointGoal || !skillNameTouched) {
       console.log("Error occured, no submit");
       setTriedSubmit(true);
       return;
@@ -52,10 +57,6 @@ const SkillForm = ({ prepopulatedData }) => {
     // ... push to context array
     setSkillData(initialState);
   };
-
-  const skillNameHasError = skillNameTouched && skillName.length === 0;
-  const timeGoalHasError = timeGoalTouched && !timeGoal;
-  const pointGoalHasError = pointGoalTouched && !pointGoal;
 
   return (
     <form onSubmit={handleSubmit} className="bg-sky-100 p-4">
@@ -75,7 +76,7 @@ const SkillForm = ({ prepopulatedData }) => {
       <InputSection
         name="timeGoal"
         value={timeGoal}
-        label="How much time would you like to practice?"
+        label="How much time would you like to practice a session?"
         hasError={timeGoalHasError}
         changeHandler={handleChange}
         blurHandler={handleBlur}
@@ -96,7 +97,7 @@ const SkillForm = ({ prepopulatedData }) => {
         min={1}
         max={14}
       />
-      {triedSubmit && (
+      {triedSubmit && anyErrors && (
         <p className="mb-2">Please fix issues above before submitting.</p>
       )}
       <button className="bg-white p-2 rounded shadow-sm hover:bg-yellow-100">
