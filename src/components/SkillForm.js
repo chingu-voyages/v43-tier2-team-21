@@ -80,7 +80,9 @@ const SkillForm = ({ prepopulatedData }) => {
         changeHandler={handleChange}
         blurHandler={handleBlur}
         error="Please enter a value"
-        type="text"
+        type="number"
+        min={1}
+        max={14}
       />
       <InputSection
         name="pointGoal"
@@ -90,7 +92,9 @@ const SkillForm = ({ prepopulatedData }) => {
         changeHandler={handleChange}
         blurHandler={handleBlur}
         error="Please enter a value"
-        type="text"
+        type="number"
+        min={1}
+        max={14}
       />
       {triedSubmit && (
         <p className="mb-2">Please fix issues above before submitting.</p>
