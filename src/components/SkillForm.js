@@ -47,6 +47,7 @@ const SkillForm = ({ prepopulatedData }) => {
       timeGoalTouched: true,
       pointGoalTouched: true,
     }));
+
     if (!timeGoal || !pointGoal || !skillNameTouched) {
       console.log("Error occured, no submit");
       setTriedSubmit(true);
