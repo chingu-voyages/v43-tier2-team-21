@@ -1,7 +1,9 @@
 import {Link} from "react-router-dom";
 
 
-export const SkillCard = () => {
+export const SkillCard = ({skillData}) => {
+  const {skillName, goal, completedSessions} = skillData
+
   return (
     <div
       onClick={() => console.log("clicked")}
@@ -10,8 +12,8 @@ export const SkillCard = () => {
 				border border-black rounded-lg bg-sky-100 shadow-md
 				font-serif`}
     >
-      <h1 className={`text-3xl text-center`}>Piano</h1>
-      <div className={`text-3xl text-center`}>4 / 6</div>
+      <h1 className={`text-3xl text-center`}>{skillName}</h1>
+      <div className={`text-3xl text-center`}>{goal} / {completedSessions}</div>
       <div className={`h-8 w-48 flex justify-evenly`}>
         <Link to={"/edit"}><EditButton/></Link>
         <Link to={"/timer"}><StartButton/></Link>
