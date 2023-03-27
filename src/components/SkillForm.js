@@ -1,5 +1,5 @@
 import React from "react";
-import InputSection from "./InputSection";
+import InputSection from "./UI/InputSection";
 
 const initialState = {
   skillName: "",
