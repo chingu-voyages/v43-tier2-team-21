@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+
 export const SkillCard = () => {
   return (
     <div
@@ -7,8 +9,12 @@ export const SkillCard = () => {
 				border border-black rounded-lg bg-sky-100 shadow-md
 				font-serif`}
     >
-      <h1 className={`text-3xl`}>Piano</h1>
+      <h1 className={`text-3xl text-center`}>Piano</h1>
       <div className={`text-3xl text-center`}>4 / 6</div>
+      <div className={`h-8 w-48 flex justify-evenly`}>
+        <Link to={"/edit"}>Edit</Link>
+        <Link to={"/timer"}>Start</Link>
+      </div>
     </div>
   );
 };
