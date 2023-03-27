@@ -1,5 +1,6 @@
 import {Link} from "react-router-dom";
 
+
 export const SkillCard = () => {
   return (
     <div
@@ -12,9 +13,25 @@ export const SkillCard = () => {
       <h1 className={`text-3xl text-center`}>Piano</h1>
       <div className={`text-3xl text-center`}>4 / 6</div>
       <div className={`h-8 w-48 flex justify-evenly`}>
-        <Link to={"/edit"}>Edit</Link>
-        <Link to={"/timer"}>Start</Link>
+        <Link to={"/edit"}><EditButton/></Link>
+        <Link to={"/timer"}><StartButton/></Link>
       </div>
     </div>
   );
 };
+
+
+const EditButton = () =>{
+  return(
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
+    </svg>
+  )
+}
+const StartButton = () =>{
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
+    </svg>
+  )
+}
