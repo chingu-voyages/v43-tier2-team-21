@@ -12,13 +12,16 @@ const Features = () => {
           <h2 className="text-center text-xl mb-3">
             Ability to Track Multiple Skills
           </h2>
-          <p>
+          <p className="text-gray-500 leading-6">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi
             adipisci fuga quasi explicabo beatae saepe, minus molestias
             necessitatibus doloribus quas? Corporis soluta corrupti reiciendis,
             tempora doloremque beatae cumque commodi odit aut omnis quos quidem.
             Obcaecati tenetur voluptas accusamus ullam nobis.
           </p>
+          <a href="#" className="mt-10 text-center">
+            Learn More!
+          </a>
         </div>
         <div className="p-20 flex flex-col">
           <img
@@ -29,13 +32,16 @@ const Features = () => {
           <h2 className="text-center text-xl mb-3">
             Log Amount of Time Spent on Each Skill
           </h2>
-          <p>
+          <p className="text-gray-500 leading-6">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim minus
             quisquam facere architecto ducimus assumenda saepe consequuntur
             dolores nam excepturi laboriosam, natus non reiciendis dicta maxime
             id quia ex officia quis. Mollitia obcaecati animi hic accusantium
             temporibus corporis molestiae alias.
           </p>
+          <a href="#" className="mt-10 text-center">
+            Learn More!
+          </a>
         </div>
         <div className="p-20 flex flex-col">
           <img
@@ -46,13 +52,16 @@ const Features = () => {
           <h2 className="text-center text-xl mb-3">
             Track Your Progress on Each Skill
           </h2>
-          <p>
+          <p className="text-gray-500 leading-6">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim minus
             quisquam facere architecto ducimus assumenda saepe consequuntur
             dolores nam excepturi laboriosam, natus non reiciendis dicta maxime
             id quia ex officia quis. Mollitia obcaecati animi hic accusantium
             temporibus corporis molestiae alias.
           </p>
+          <a href="#" className="mt-10 text-center">
+            Learn More!
+          </a>
         </div>
       </div>
     </section>
