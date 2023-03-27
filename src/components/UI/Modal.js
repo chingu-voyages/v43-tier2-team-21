@@ -8,9 +8,6 @@ export default function Modal(props) {
     e.preventDefault();
     props.onClick();
   }
-  function handleSave() {
-    props.submit.function();
-  }
 
   return (
     <>
