@@ -7,8 +7,6 @@ const Dashboard = () => {
   return (
     <>
       <SkillCard />
-      <SkillForm />
-      <Timer />
       <DueToday />
     </>
   );
