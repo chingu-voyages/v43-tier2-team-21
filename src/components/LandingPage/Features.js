@@ -1,3 +1,7 @@
+import multiple from "../../images/multiple.png"
+
+
+
 const Features = () => {
   return (
     <section className="bg-gray-100 pt-20 pb-40">

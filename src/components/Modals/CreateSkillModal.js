@@ -2,24 +2,14 @@ import Modal from "../UI/Modal";
 import React from "react";
 import SkillForm from "../SkillForm";
 
-const CreateSkillModal = () => {
-  const [modalIsOpen, setModalIsOpen] = React.useState(true);
-
-  function toggleModal() {
-    setModalIsOpen((prev) => !prev);
-  }
-
+const CreateSkillModal = ({ toggleAdding }) => {
   return (
-    <>
-      {modalIsOpen && (
-        <Modal
-          onClick={toggleModal}
-          className="bg-sky-300 rounded-lg text-center w-800 p-8"
-        >
-          <SkillForm />
-        </Modal>
-      )}
-    </>
+    <Modal
+      onClick={toggleAdding}
+      className="bg-sky-100 rounded-lg text-center w-800 p-8"
+    >
+      <SkillForm />
+    </Modal>
   );
 };
 
