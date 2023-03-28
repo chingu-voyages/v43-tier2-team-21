@@ -1,4 +1,6 @@
 import { SkillCard } from "./SkillCard";
+import { useContext } from "react";
+import { UserContext } from "../App";
 
 export const SkillCardContainer = () => {
 	const fakeData = [
@@ -10,7 +12,10 @@ export const SkillCardContainer = () => {
 	  { skillName: "Writing", goal: 5, completedSessions:2 },
 	  { skillName: "Exercise", goal: 5, completedSessions:2 }
 	];
-  
+	const { currentUser, skills } = useContext(UserContext)
+	console.log(currentUser);
+	console.log(skills[0].skillName)
+
 	const skillCards = fakeData.map((skill) =>{
 		return(
 			<SkillCard 
