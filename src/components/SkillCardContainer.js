@@ -13,8 +13,9 @@ export const SkillCardContainer = () => {
 	  { skillName: "Exercise", goal: 5, completedSessions:2 }
 	];
 	const { currentUser, skills } = useContext(UserContext)
-	console.log(currentUser);
+	console.log(skills)
 	console.log(skills[0].skillName)
+	console.log(`${skills[0].completedSessions} / ${skills[0].sessionsGoal}`)
 
 	const skillCards = fakeData.map((skill) =>{
 		return(
