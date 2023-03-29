@@ -1,5 +1,5 @@
 import React from "react";
-import InputSection from "./InputSection";
+import InputSection from "./UI/InputSection";
 
 const initialState = {
   skillName: "",
@@ -60,7 +60,7 @@ const SkillForm = ({ prepopulatedData }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-sky-100 p-4">
+    <form onSubmit={handleSubmit}>
       <h2 className="text-lg font-bold">
         {prepopulatedData ? "Edit Skill Preferences" : "Add New Skill"}
       </h2>

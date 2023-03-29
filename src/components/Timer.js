@@ -8,6 +8,11 @@ function tempTime() {
 }
 
 const Timer = ({ expiryTimestamp = tempTime() }) => {
+  const fakeData = {
+    skillName: "Piano",
+  };
+  const { skillName } = fakeData;
+
   const { seconds, minutes, isRunning, start, pause, resume, restart } =
     useTimer({
       expiryTimestamp,
@@ -25,15 +30,15 @@ const Timer = ({ expiryTimestamp = tempTime() }) => {
   }, [minutes]);
 
   return (
-    <div className="flex flex-col items-center bg-slate-500 text-white p-10">
-      <h2 className="text-3xl underline">Practice Session</h2>
-      <div className="my-20 text-4xl">
+    <div className="flex flex-col items-center py-40 bg-sky-300 text-white p-10 h-screen">
+      <h2 className="text-5xl underline">Practice {skillName}</h2>
+      <div className="my-20 text-7xl">
         <span>{minutes}</span>:<span>{seconds}</span>
       </div>
-      <div className="flex text-black">
+      <div className="flex text-black text-2xl">
         {!hasStarted && (
           <button
-            className="mx-2 bg-green-300 p-3 rounded-md hover:opacity-80"
+            className="mx-2 bg-green-300 p-5 rounded-md hover:opacity-80"
             onClick={start}
           >
             Start
@@ -41,7 +46,7 @@ const Timer = ({ expiryTimestamp = tempTime() }) => {
         )}
         {isRunning && (
           <button
-            className="mx-2 bg-red-300 p-3 rounded-md hover:opacity-80"
+            className="mx-2 bg-red-300 p-5 rounded-md hover:opacity-80"
             onClick={pause}
           >
             Pause
@@ -49,7 +54,7 @@ const Timer = ({ expiryTimestamp = tempTime() }) => {
         )}
         {!isRunning && hasStarted && (
           <button
-            className="mx-2 bg-green-300 p-3 rounded-md hover:opacity-80"
+            className="mx-2 bg-green-300 p-5 rounded-md hover:opacity-80"
             onClick={resume}
           >
             Resume
@@ -57,7 +62,7 @@ const Timer = ({ expiryTimestamp = tempTime() }) => {
         )}
         {hasStarted && (
           <button
-            className="mx-2 bg-blue-300 p-3 rounded-md hover:opacity-80"
+            className="mx-2 bg-blue-300 p-5 rounded-md hover:opacity-80"
             onClick={() => restart(tempTime(), false)}
           >
             Restart

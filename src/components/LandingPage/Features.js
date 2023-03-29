@@ -3,6 +3,7 @@ import progress from "../images/progress.png"
 import time from "../images/time.png"
 
 
+
 const Features = () => {
   return (
     <section className="bg-gray-100 pt-20 pb-40">
