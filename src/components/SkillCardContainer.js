@@ -3,7 +3,7 @@ import { AddskillBtn } from "./AddskillBtn";
 import { useContext } from "react";
 import { UserContext } from "../App";
 
-export const SkillCardContainer = () => {
+export const SkillCardContainer = ({toggleAdding}) => {
 	const fakeData = [
 	  { skillName: "Piano", goal: 8, completedSessions:2 },
 	  { skillName: "Danish", goal: 7, completedSessions:1 },
