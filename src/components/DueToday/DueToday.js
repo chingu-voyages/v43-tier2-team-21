@@ -40,8 +40,8 @@ const DueToday = () => {
   ));
 
   return (
-    <section className="max-w-3xl mx-auto">
-      <h2 className="text-lg">Due {compareDate(globalDueDate)}</h2>
+    <section className="w-full">
+      <h2 className="text-2xl">Due {compareDate(globalDueDate)}</h2>
       <section>{indvCards}</section>
     </section>
   );
