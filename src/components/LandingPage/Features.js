@@ -1,4 +1,6 @@
 import multiple from "../../images/multiple.png"
+import progress from "../../images/progress.png"
+import time from "../../images/time.png"
 
 
 
@@ -9,8 +11,8 @@ const Features = () => {
       <div className="flex justify-evenly items-center text-purple-900">
         <div className="p-20 flex flex-col">
           <img
-            src="./images/multiple.png"
-            alt="image"
+            src={ multiple}
+            alt=""
             className="w-20 self-center mb-5"
           />
           <h2 className="text-center text-xl mb-3">
@@ -23,14 +25,14 @@ const Features = () => {
             tempora doloremque beatae cumque commodi odit aut omnis quos quidem.
             Obcaecati tenetur voluptas accusamus ullam nobis.
           </p>
-          <a href="#" className="mt-10 text-center">
-            Learn More!
+          <a href="{<Dashboard />}" className="mt-10 text-center">
+            Sign Up!
           </a>
         </div>
         <div className="p-20 flex flex-col">
           <img
-            src="./images/time.png"
-            alt="image"
+            src={time}
+            alt=""
             className="w-20 self-center mb-5"
           />
           <h2 className="text-center text-xl mb-3">
@@ -43,14 +45,14 @@ const Features = () => {
             id quia ex officia quis. Mollitia obcaecati animi hic accusantium
             temporibus corporis molestiae alias.
           </p>
-          <a href="#" className="mt-10 text-center">
-            Learn More!
+          <a href="{<Dashboard />}" className="mt-10 text-center">
+            Sign Up!
           </a>
         </div>
         <div className="p-20 flex flex-col">
           <img
-            src="./images/progress.png"
-            alt="image"
+            src={progress}
+            alt=""
             className="w-20 self-center mb-5"
           />
           <h2 className="text-center text-xl mb-3">
@@ -63,8 +65,8 @@ const Features = () => {
             id quia ex officia quis. Mollitia obcaecati animi hic accusantium
             temporibus corporis molestiae alias.
           </p>
-          <a href="#" className="mt-10 text-center">
-            Learn More!
+          <a href="{<Dashboard />}" className="mt-10 text-center">
+            Sign Up!
           </a>
         </div>
       </div>
