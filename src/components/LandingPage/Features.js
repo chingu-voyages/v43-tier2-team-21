@@ -1,6 +1,6 @@
-import multiple from "../images/multiple.png"
-import progress from "../images/progress.png"
-import time from "../images/time.png"
+import multiple from "../../images/multiple.png"
+import progress from "../../images/progress.png"
+import time from "../../images/time.png"
 
 
 
