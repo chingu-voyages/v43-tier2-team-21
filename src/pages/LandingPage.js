@@ -1,4 +1,4 @@
-// import Navbar from "../components/Navbar"
+import Navbar from "../components/NavBar";
 import Hero from "../components/LandingPage/Hero";
 import Features from "../components/LandingPage/Features";
 import Testimonials from "../components/LandingPage/Testimonials";
@@ -6,7 +6,7 @@ import Testimonials from "../components/LandingPage/Testimonials";
 const LandingPage = () => {
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
       <Hero />
       <Features />
       <Testimonials />
