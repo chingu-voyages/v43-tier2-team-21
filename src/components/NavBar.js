@@ -16,7 +16,7 @@ const NavBar = () => {
             <Link to={'/addskill'}>Add Skill</Link>
           </li>
           <li>
-            <Link to={'/edit'}>Edit Goals</Link>
+            <Link to={'/edit'}>Edit Skill</Link>
           </li>
         </ul>
       </div>
