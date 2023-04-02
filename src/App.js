@@ -3,27 +3,24 @@ import { Routes, Route } from "react-router";
 import Dashboard from "./pages/Dashboard";
 import LandingPage from "./pages/LandingPage";
 import Timer from "./components/Timer"
-import { createContext, useState }  from "react";
+import { createContext, useState, useEffect }  from "react";
+
+
 
 export const UserContext = createContext(null)
 
-export default function App() {
-  const [data] = useState({
-    currentUser:"Test User",
-      skills:[
-        { skillName: "Piano", sessionsGoal: 8, completedSessions:2, timeLeft: 0.5, totalGoal: 3 },
-        { skillName: "Danish", sessionsGoal: 7, completedSessions:1 },
-        { skillName: "Crochet", sessionsGoal: 5, completedSessions:2 },
-        { skillName: "Violin", sessionsGoal: 5, completedSessions:2, timeLeft: 0.33, totalGoal: 2 },
-        { skillName: "Jiu-jitsu", sessionsGoal: 5, completedSessions:2 },
-        { skillName: "Writing", sessionsGoal: 5, completedSessions:2 },
-        { skillName: "Spanish", sessionsGoal: 5, completedSessions:2, timeLeft: 0.33, totalGoal: 1 }
-      ]
-  });
-
-
+export default function App() {  
+  const currentUser = "OXEeBhhuvdMr0a4dIbAevf82O9H2";
+  const [Data, setData] = useState({name:"hello", skills:{name:"test", sessionsCompleted:0, sessionsGoal:2}})
+ 
+  useEffect(()=>{
+    fetch(`https://skill-tracker-b900e-default-rtdb.firebaseio.com/users/${currentUser}.json?print=pretty`)
+    .then((response) => response.json())
+    .then((data) => setData(data))    
+  },[]);
+  
   return (
-    <UserContext.Provider value={data}>
+    <UserContext.Provider value={Data}>
       <Routes>
         <Route path="/landingpage" element={<LandingPage />} />
         <Route path="/dashboard" element={<Dashboard />} />

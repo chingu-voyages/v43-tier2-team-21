@@ -49,8 +49,8 @@ function loginUser(userDetails){
 const User1id = "OXEeBhhuvdMr0a4dIbAevf82O9H2";
 const User2id = "Ucep7DdGfiVrgkgtZEnuuXfKmPv1";
 
-function getDB(currentUser){
-	fetch(`https://skill-tracker-b900e-default-rtdb.firebaseio.com/users/${currentUser}/skills.json?print=pretty`)
+const getDB = (currentUser) =>{
+	fetch(`https://skill-tracker-b900e-default-rtdb.firebaseio.com/users/${currentUser}.json?print=pretty`)
 	.then((response) => response.json())
 	.then((data) => console.log(data));
 };
