@@ -1,5 +1,6 @@
 import React from "react";
 import { useTimer } from "react-timer-hook";
+import { useLocation } from "react-router";
 
 function tempTime() {
   const tempTime = new Date();
@@ -8,10 +9,10 @@ function tempTime() {
 }
 
 const Timer = ({ expiryTimestamp = tempTime() }) => {
-  const fakeData = {
-    skillName: "Piano",
-  };
-  const { skillName } = fakeData;
+  const location = useLocation();
+  const skillName = location.pathname.substring(
+    location.pathname.lastIndexOf("/") + 1
+  );
 
   const { seconds, minutes, isRunning, start, pause, resume, restart } =
     useTimer({
