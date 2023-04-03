@@ -4,13 +4,13 @@ import Dashboard from "./pages/Dashboard";
 import LandingPage from "./pages/LandingPage";
 import Timer from "./components/Timer"
 import { createContext, useState, useEffect }  from "react";
-
+import { KEY, USER1, USER2} from "./secrets"
 
 
 export const UserContext = createContext(null)
 
 export default function App() {  
-  const currentUser = "OXEeBhhuvdMr0a4dIbAevf82O9H2";
+  const currentUser = USER2;
   const [Data, setData] = useState({name:"hello", skills:{name:"test", sessionsCompleted:0, sessionsGoal:2}})
  
   useEffect(()=>{
