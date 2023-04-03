@@ -10,11 +10,15 @@ const InputSection = ({
   error,
   min,
   max,
+  labelClassName,
+  inputClassName,
 }) => {
   return (
     <section className="flex flex-col my-3">
       <label
-        className={`flex flex-col ${hasError && "text-red-500 font-bold"}`}
+        className={`flex flex-col ${
+          hasError && "text-red-500 font-bold"
+        } ${labelClassName}`}
       >
         {label}
         <input
@@ -24,7 +28,7 @@ const InputSection = ({
           name={name}
           onChange={changeHandler}
           onBlur={blurHandler}
-          className="p-1 mt-1"
+          className={`p-2 mt-1 ${inputClassName}`}
           min={min}
           max={max}
         />
