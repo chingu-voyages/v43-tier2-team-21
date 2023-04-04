@@ -9,8 +9,8 @@ export const SkillCardContainer = ({toggleAdding}) => {
   console.log(name)
   console.log(Skills)
   
-  const skillCards = Skills.map((skill) => {
-    return <SkillCard key={skill.name} skillData={skill} />;
+  const skillCards = Skills.map((skill,index) => {
+    return <SkillCard key={index} skillData={skill} />;
   });
 
   return (
