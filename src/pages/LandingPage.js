@@ -6,7 +6,6 @@ import Testimonials from "../components/LandingPage/Testimonials";
 const LandingPage = () => {
   return (
     <>
-      <Navbar />
       <Hero />
       <Features />
       <Testimonials />

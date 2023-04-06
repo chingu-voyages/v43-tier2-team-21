@@ -1,58 +1,35 @@
-import SkillForm from "./components/SkillForm";
 import React from "react";
-import { Routes, Route } from "react-router";
+import { createContext, useState, useEffect } from "react";
 import Dashboard from "./pages/Dashboard";
 import LandingPage from "./pages/LandingPage";
-import Timer from "./components/Timer";
-import { createContext, useState } from "react";
+import { Routes, Route } from "react-router";
+import SkillForm from "./components/SkillForm";
+import Timer from "./components/Timer"
 import NavBar from "./components/NavBar";
 import AuthForm from "./components/Auth";
 import CreateSkillModal from "./components/Modals/CreateSkillModal";
+import { KEY, USER1, USER2 } from "./secrets"
 
-export const UserContext = createContext(null);
+export const UserContext = createContext(null)
 
 export default function App() {
+  const [Data, setData] = useState({ name: "hello", skills: { name: "test", sessionsCompleted: 0, sessionsGoal: 2 } })
   const [showAddModal, setShowAddModal] = React.useState(false);
+  const currentUser = USER1;
 
   function toggleAdding() {
     setShowAddModal((prev) => !prev);
   }
-
   console.log(showAddModal);
 
-  const [data] = useState({
-    currentUser: "Test User",
-    skills: [
-      {
-        skillName: "Piano",
-        sessionsGoal: 8,
-        completedSessions: 2,
-        timeLeft: 0.5,
-        totalGoal: 3,
-      },
-      { skillName: "Danish", sessionsGoal: 7, completedSessions: 1 },
-      { skillName: "Crochet", sessionsGoal: 5, completedSessions: 2 },
-      {
-        skillName: "Violin",
-        sessionsGoal: 5,
-        completedSessions: 2,
-        timeLeft: 0.33,
-        totalGoal: 2,
-      },
-      { skillName: "Jiu-jitsu", sessionsGoal: 5, completedSessions: 2 },
-      { skillName: "Writing", sessionsGoal: 5, completedSessions: 2 },
-      {
-        skillName: "Spanish",
-        sessionsGoal: 5,
-        completedSessions: 2,
-        timeLeft: 0.33,
-        totalGoal: 1,
-      },
-    ],
-  });
+  useEffect(() => {
+    fetch(`https://skill-tracker-b900e-default-rtdb.firebaseio.com/users/${currentUser}.json?print=pretty`)
+      .then((response) => response.json())
+      .then((data) => setData(data))
+  }, []);
 
   return (
-    <UserContext.Provider value={data}>
+    <UserContext.Provider value={Data}>
       <NavBar toggleAdding={toggleAdding} />
       <Routes>
         <Route path="/landingpage" element={<LandingPage />} />
