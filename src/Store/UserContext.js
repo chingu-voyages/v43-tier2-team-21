@@ -1,31 +1,34 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { AuthContext } from "./AuthContext";
+import AuthContext  from "./AuthContext";
 
-const UserContext = createContext({ 
-	name: "none", 
-	skills: { 
-		name: "empty", 
-		sessionsCompleted: 0, 
-		sessionsGoal: 0 
-	} 
-});
+export const UserContext = createContext(null);
 
-export function UserContextProvider(){
+export function UserContextProvider(props){
 	const { userID, isLoggedIn } = useContext(AuthContext)
 	console.log(userID);
 	console.log(isLoggedIn);
-	const currentUser = "Ucep7DdGfiVrgkgtZEnuuXfKmPv1";
-	const [contextValue, setContextValue ] = useState(UserContext)
+	const [ contextValue, setContextValue ] = useState({ 
+		name: "none", 
+		skills:{
+			skill1:{ 
+				name: "empty", 
+				sessionsCompleted: 0, 
+				sessionsGoal: 0 
+			}, 
+		} 
+	})
 	
 	useEffect(() => {
-		fetch(`https://skill-tracker-b900e-default-rtdb.firebaseio.com/users/${currentUser}.json?print=pretty`)
-		  .then((response) => response.json())
-		  .then((data) => setContextValue(data))
-	  }, []);
+		if(isLoggedIn){
+			fetch(`https://skill-tracker-b900e-default-rtdb.firebaseio.com/users/${userID}.json?print=pretty`)
+			  .then((response) => response.json())
+			  .then((data) => setContextValue(data))
+		}
+	  }, [userID]);
 
 	return(
 		<UserContext.Provider value={contextValue}>
-
+			{props.children}
 		</UserContext.Provider>
 	)
 }
