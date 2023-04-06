@@ -1,5 +1,6 @@
 import React from "react";
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
+import AuthContext  from "./Store/AuthContext";
 import Dashboard from "./pages/Dashboard";
 import LandingPage from "./pages/LandingPage";
 import { Routes, Route } from "react-router";
@@ -13,13 +14,15 @@ import CreateSkillModal from "./components/Modals/CreateSkillModal";
 export const UserContext = createContext(null)
 //temp variables for testing data fetching.
 export const KEY = "AIzaSyBs2CqQXXU3zdnT0x9fFOXeGIrpELVYAc4"
-export const USER1= "OXEeBhhuvdMr0a4dIbAevf82O9H2"
-export const USER2= "Ucep7DdGfiVrgkgtZEnuuXfKmPv1"
+
 
 export default function App() {
-  const [Data, setData] = useState({ name: "hello", skills: { name: "test", sessionsCompleted: 0, sessionsGoal: 2 } })
+  const [Data, setData] = useState({ name: "none", skills: { name: "empty", sessionsCompleted: 0, sessionsGoal: 0 } })
+  const { userID } = useContext(AuthContext)
+  console.log(userID)
   const [showAddModal, setShowAddModal] = React.useState(false);
-  const currentUser = USER1;
+  const currentUser = "Ucep7DdGfiVrgkgtZEnuuXfKmPv1"
+ 
 
   function toggleAdding() {
     setShowAddModal((prev) => !prev);
@@ -30,7 +33,7 @@ export default function App() {
     fetch(`https://skill-tracker-b900e-default-rtdb.firebaseio.com/users/${currentUser}.json?print=pretty`)
       .then((response) => response.json())
       .then((data) => setData(data))
-  }, []);
+  }, [userID]);
 
   return (
     <UserContext.Provider value={Data}>
