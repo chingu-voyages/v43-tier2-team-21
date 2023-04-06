@@ -9,8 +9,8 @@ export const SkillCard = ({id, skillData }) => {
       <h1 className={`text-3xl text-center`}>{name}</h1>
       <div className={`text-3xl text-center`}> {sessionsCompleted} / {sessionsGoal} </div>
       <div className={`h-8 w-48 flex justify-evenly`}>
-        <Link to={`/edit/:${id}`}> <EditButton /> </Link>
-        <Link to={"/timer"}> <StartButton /> </Link>
+        <Link to={`/edit/:${id}`}  state={skillData}> <EditButton /></Link>
+        <Link to={"/timer"}> <StartButton /></Link>
       </div>
     </div>
   );
