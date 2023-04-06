@@ -1,7 +1,7 @@
 import { SkillCard } from "./SkillCard";
 import { AddskillBtn } from "./AddskillBtn";
 import { useContext } from "react";
-import { UserContext } from "../App";
+import { UserContext } from "../Store/UserContext";
 
 export const SkillCardContainer = ({toggleAdding}) => {
   const {name, skills} = useContext(UserContext);

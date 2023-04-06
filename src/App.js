@@ -1,5 +1,5 @@
 import React from "react";
-import { createContext, useState, useEffect } from "react";
+import { UserContextProvider } from "./Store/UserContext";
 import Dashboard from "./pages/Dashboard";
 import LandingPage from "./pages/LandingPage";
 import { Routes, Route } from "react-router";
@@ -10,30 +10,16 @@ import AuthForm from "./components/Auth";
 import CreateSkillModal from "./components/Modals/CreateSkillModal";
 
 
-export const UserContext = createContext(null)
-//temp variables for testing data fetching.
-export const KEY = "AIzaSyBs2CqQXXU3zdnT0x9fFOXeGIrpELVYAc4"
-export const USER1= "OXEeBhhuvdMr0a4dIbAevf82O9H2"
-export const USER2= "Ucep7DdGfiVrgkgtZEnuuXfKmPv1"
-
 export default function App() {
-  const [Data, setData] = useState({ name: "hello", skills: { name: "test", sessionsCompleted: 0, sessionsGoal: 2 } })
-  const [showAddModal, setShowAddModal] = React.useState(false);
-  const currentUser = USER1;
+  const [showAddModal, setShowAddModal] = React.useState(false); 
 
   function toggleAdding() {
     setShowAddModal((prev) => !prev);
   }
   console.log(showAddModal);
 
-  useEffect(() => {
-    fetch(`https://skill-tracker-b900e-default-rtdb.firebaseio.com/users/${currentUser}.json?print=pretty`)
-      .then((response) => response.json())
-      .then((data) => setData(data))
-  }, []);
-
   return (
-    <UserContext.Provider value={Data}>
+    <UserContextProvider>
       <NavBar toggleAdding={toggleAdding} />
       <Routes>
         <Route path="/landingpage" element={<LandingPage />} />
@@ -59,6 +45,6 @@ export default function App() {
           }
         />
       </Routes>
-    </UserContext.Provider>
+    </UserContextProvider>
   );
 }
