@@ -8,9 +8,13 @@ import Timer from "./components/Timer"
 import NavBar from "./components/NavBar";
 import AuthForm from "./components/Auth";
 import CreateSkillModal from "./components/Modals/CreateSkillModal";
-import { KEY, USER1, USER2 } from "./secrets"
+
 
 export const UserContext = createContext(null)
+//temp variables for testing data fetching.
+export const KEY = "AIzaSyBs2CqQXXU3zdnT0x9fFOXeGIrpELVYAc4"
+export const USER1= "OXEeBhhuvdMr0a4dIbAevf82O9H2"
+export const USER2= "Ucep7DdGfiVrgkgtZEnuuXfKmPv1"
 
 export default function App() {
   const [Data, setData] = useState({ name: "hello", skills: { name: "test", sessionsCompleted: 0, sessionsGoal: 2 } })
