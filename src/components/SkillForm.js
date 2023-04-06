@@ -1,6 +1,6 @@
 import React from "react";
 import InputSection from "./UI/InputSection";
-
+import { useParams } from "react-router-dom";
 const initialState = {
   skillName: "",
   skillNameTouched: false,
@@ -11,9 +11,12 @@ const initialState = {
 };
 
 const SkillForm = ({ prepopulatedData }) => {
+  const { key } = useParams();
+  console.log(key)
   const [skillData, setSkillData] = React.useState(
     prepopulatedData ? prepopulatedData : initialState
   );
+  console.log(skillData)
   const [triedSubmit, setTriedSubmit] = React.useState(false);
 
   const {
