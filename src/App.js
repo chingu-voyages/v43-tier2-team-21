@@ -32,7 +32,7 @@ export default function App() {
             />
           }
         />
-        <Route path="/edit" element={<SkillForm />} />
+        <Route path="/edit/:itemID" element={<SkillForm />} />
         <Route path="/practice/*" element={<Timer />} />
         <Route path="/auth" element={<AuthForm />} />
         <Route

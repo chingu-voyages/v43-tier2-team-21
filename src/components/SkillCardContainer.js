@@ -6,11 +6,10 @@ import { UserContext } from "../Store/UserContext";
 export const SkillCardContainer = ({toggleAdding}) => {
   const {name, skills} = useContext(UserContext);
   const Skills =Object.entries(skills).map((obj)=>obj[1])
-  console.log(name)
-  console.log(Skills)
+
   
   const skillCards = Skills.map((skill,index) => {
-    return <SkillCard key={index} skillData={skill} />;
+    return <SkillCard key={index} id={index} skillData={skill} />;
   });
 
   return (

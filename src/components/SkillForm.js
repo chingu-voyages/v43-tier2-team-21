@@ -1,5 +1,7 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import InputSection from "./UI/InputSection";
+
 
 const initialState = {
   skillName: "",
@@ -11,9 +13,20 @@ const initialState = {
 };
 
 const SkillForm = ({ prepopulatedData }) => {
+  //-------------------------------------
+  //Matt trying to pass skill-data as props from SkillCard.
+  const location = useLocation();
+  const data = location.state;
+  console.log(data);
+  if(data){
+    prepopulatedData = data;
+  }
+  //--------------------------------------
+
   const [skillData, setSkillData] = React.useState(
     prepopulatedData ? prepopulatedData : initialState
   );
+  console.log(skillData)
   const [triedSubmit, setTriedSubmit] = React.useState(false);
 
   const {
@@ -62,7 +75,7 @@ const SkillForm = ({ prepopulatedData }) => {
   return (
     <form onSubmit={handleSubmit}>
       <h2 className="text-lg font-bold">
-        {prepopulatedData ? "Edit Skill Preferences" : "Add New Skill"}
+        {prepopulatedData ? `Edit Preferences for ${data.name}`  : "Add New Skill"}
       </h2>
       <InputSection
         name="skillName"
@@ -102,7 +115,7 @@ const SkillForm = ({ prepopulatedData }) => {
         <p className="mb-2">Please fix issues above before submitting.</p>
       )}
       <button className="bg-white p-2 rounded shadow-sm hover:bg-yellow-100">
-        {prepopulatedData ? "Edit Skill" : "Add Skill"}
+        {prepopulatedData ? "Save changes" : "Add Skill"}
       </button>
     </form>
   );
