@@ -5,13 +5,22 @@ import { UserContext } from "../Store/UserContext";
 
 export const SkillCardContainer = ({toggleAdding}) => {
   const {name, skills} = useContext(UserContext);
-  const Skills =Object.entries(skills).map((obj)=>obj[1])
+  
+  //checks if user has no skills (i.e. new user)
+  let Skills;
+  let skillCards;
+  if(skills){
+    Skills =Object.entries(skills).map((obj)=>obj[1])
+    skillCards = Skills.map((skill,index) => {
+      return <SkillCard key={index} id={index} skillData={skill} />;
+    });    
+  }else{
+    Skills =null
+  }
+  
 
   
-  const skillCards = Skills.map((skill,index) => {
-    return <SkillCard key={index} id={index} skillData={skill} />;
-  });
-
+if(Skills){
   return (
     <section>
       <div className="flex justify-between items-center py-3 mb-3">
@@ -23,4 +32,5 @@ export const SkillCardContainer = ({toggleAdding}) => {
       </div>
     </section>
   );
+}
  };
