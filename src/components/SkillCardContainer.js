@@ -8,7 +8,7 @@ export const SkillCardContainer = ({toggleAdding}) => {
   
   //checks if user has no skills (i.e. new user)
   let Skills;
-  let skillCards;
+  let skillCards; 
   if(skills){
     Skills =Object.entries(skills).map((obj)=>obj[1])
     skillCards = Skills.map((skill,index) => {
@@ -17,9 +17,7 @@ export const SkillCardContainer = ({toggleAdding}) => {
   }else{
     Skills =null
   }
-  
-
-  
+    
 if(Skills){
   return (
     <section>
@@ -33,4 +31,4 @@ if(Skills){
     </section>
   );
 }
- };
+};

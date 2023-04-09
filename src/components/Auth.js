@@ -95,7 +95,9 @@ export default function AuthForm() {
         }
       })
       .then((data) => {
-        console.log(data);
+        if(isLogin === false){
+          addUserDB (addUserUrl,data.localId, emailValue)
+        }
         // if (contactCtx.contactData) {
         //   fetch(
         //     `https://contactbook-759bd-default-rtdb.firebaseio.com/${data.localId}.json`,
@@ -185,3 +187,21 @@ export default function AuthForm() {
     </section>
   );
 }
+
+
+//this gets called when new user signs up and is adds new UID, user's email and empty skills object to user endpoint in DB
+const addUserUrl =`https://skill-tracker-b900e-default-rtdb.firebaseio.com/users/.json`
+function addUserDB (url,testUser, testUseremail) { 
+	fetch(url, {
+		method: "PATCH",
+		body: JSON.stringify({
+			[testUser]:{
+				name:testUseremail,
+				skills:{}
+			}
+		}),
+		headers:{
+			"Content-Type": "application/json",
+		},
+	})
+};
