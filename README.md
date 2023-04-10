@@ -1,16 +1,30 @@
-# Project Name
-A brief description of your project.
+# Skill Tracker
 
-## Table of Contents
-Installation
-Usage
-Contributing
-License
-Installation
-Instructions on how to install and run your project. Include any dependencies that need to be installed, as well as any relevant environment variables or configuration options.
+## Overview
+This app allows you to track your progress as you learn a new skill. This app was created for the Chingu Voyage 43 by Team 21, and was a Tier 2 level project.
 
-## Usage
-Instructions on how to use your project. Include any relevant command line arguments or options, as well as any API documentation if applicable.
+## Features
+-Ability to track multiple skills at once
+-Progress bars on the dashboard show your progress at a glance
+-Track how long you would like each practice session to be
+-Track how many times you would like to practice each week
+-Log length of session on built in timer
+
+## Running the Project
+
+
+
+## Dependencies
+
+
+
+## Contributors: Who is team 21?
+This project was created by the hard work of the following people:
+-Matt Reuter
+-Paul Melton
+-Parveen Kaur
+-Daniel O
+
 
 
 
