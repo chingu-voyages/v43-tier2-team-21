@@ -79,6 +79,7 @@ const SkillForm = ({ prepopulatedData }) => {
       </h2>
       <InputSection
         name="skillName"
+        placeholder= {prepopulatedData ? data.name : "e.g. piano"}
         value={skillName}
         label="Goal Name"
         hasError={skillNameHasError}
@@ -89,6 +90,7 @@ const SkillForm = ({ prepopulatedData }) => {
       />
       <InputSection
         name="timeGoal"
+        placeholder= {prepopulatedData ? data.timeGoal : "e.g. 3"}
         value={timeGoal}
         label="How much time would you like to practice a session?"
         hasError={timeGoalHasError}
@@ -101,6 +103,7 @@ const SkillForm = ({ prepopulatedData }) => {
       />
       <InputSection
         name="pointGoal"
+        placeholder= {prepopulatedData ? data.sessionsGoal : "e.g. 5"}
         value={pointGoal}
         label="How many times a week would you like to practice?"
         hasError={pointGoalHasError}
