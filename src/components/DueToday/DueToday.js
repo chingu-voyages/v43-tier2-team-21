@@ -21,9 +21,9 @@ function compareDate(date) {
 
 const DueToday = () => {
   const fakeData = [
-    { skillName: "Piano", timeLeft: 0.5, totalGoal: 3 },
-    { skillName: "Spanish", timeLeft: 0.33, totalGoal: 1 },
-    { skillName: "Violin", timeLeft: 0.33, totalGoal: 2 },
+    { skillName: "Piano", sessionsCompleted: 2, totalGoal: 3 },
+    { skillName: "Spanish", sessionsCompleted: 1, totalGoal: 5 },
+    { skillName: "Violin", sessionsCompleted: 1, totalGoal: 2 },
   ];
 
   const globalDueDate = "Friday";
@@ -34,7 +34,7 @@ const DueToday = () => {
     <IndvCards
       key={skill.skillName}
       skillName={skill.skillName}
-      timeLeft={skill.timeLeft}
+      sessionsCompleted={skill.sessionsCompleted}
       totalGoal={skill.totalGoal}
     />
   ));
