@@ -19,7 +19,7 @@ export const SkillCard = ({ skillData }) => {
         <Link to={"/edit"}>
           <EditButton />
         </Link>
-        <Link to={"/timer"}>
+        <Link to={`/practice/${skillName}`}>
           <StartButton />
         </Link>
       </div>

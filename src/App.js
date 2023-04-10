@@ -7,7 +7,6 @@ import Timer from "./components/Timer";
 import { createContext, useState } from "react";
 import NavBar from "./components/NavBar";
 import AuthForm from "./components/Auth";
-import CreateSkillModal from "./components/Modals/CreateSkillModal";
 
 export const UserContext = createContext(null);
 
