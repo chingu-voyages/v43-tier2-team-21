@@ -1,16 +1,23 @@
 import { Link } from "react-router-dom";
 
-export const SkillCard = ({id, skillData }) => {
+export const SkillCard = ({ id, skillData }) => {
   const { name, sessionsGoal, sessionsCompleted } = skillData;
 
   return (
     <div
-      className={`box-border h-60 w-60 m-2 grid content-evenly justify-center border border-black rounded-lg bg-sky-100 shadow-md font-serif`}>
+      className={`box-border h-60 w-60 m-2 grid content-evenly justify-center border border-black rounded-lg bg-sky-100 shadow-md font-serif`}
+    >
       <h1 className={`text-3xl text-center`}>{name}</h1>
-      <div className={`text-3xl text-center`}> {sessionsCompleted} / {sessionsGoal} </div>
+      <div className={`text-3xl text-center`}>
+        {sessionsCompleted} / {sessionsGoal}
+      </div>
       <div className={`h-8 w-48 flex justify-evenly`}>
-        <Link to={`/edit/:${id}`}  state={skillData}> <EditButton /></Link>
-        <Link to={"/timer"}> <StartButton /></Link>
+        <Link to={`/edit/:${id}`} state={skillData}>
+          <EditButton />
+        </Link>
+        <Link to={`/practice/${name}`}>
+          <StartButton />
+        </Link>
       </div>
     </div>
   );
