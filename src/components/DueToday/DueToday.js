@@ -1,6 +1,7 @@
 import IndvCards from "./IndvCard";
 import React from "react";
 import { UserContext } from "../../Store/UserContext";
+import emptyImage from "../../images/empty.png";
 
 function compareDate(date) {
   const days = [
@@ -40,7 +41,21 @@ const DueToday = () => {
   return (
     <section className="w-full">
       <h2 className="text-2xl">Due {compareDate(globalDueDate)}</h2>
-      <section>{indvCards}</section>
+      <section>
+        {indvCards.length > 0 ? (
+          indvCards
+        ) : (
+          <>
+            <div className="flex items-center flex-col p-5">
+              <img src={emptyImage} alt="" className="max-w-md" />
+              <p className="font-bold text-lg">
+                You have nothing due yet because you haven't added any skills to
+                practice yet, create one now!
+              </p>
+            </div>
+          </>
+        )}
+      </section>
     </section>
   );
 };
