@@ -6,6 +6,7 @@ import "normalize.css";
 import "./index.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { AuthContextProvider } from "./Store/AuthContext";
+import { UserContextProvider } from "./Store/UserContext";
 
 // Firebase api reference url : https://skill-tracker-e115a-default-rtdb.firebaseio.com/
 // Firebase Realtime DB docs : https://firebase.google.com/docs/database?authuser=0&hl=en
@@ -15,7 +16,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <AuthContextProvider>
-      <App />
+      <UserContextProvider>
+        <App />
+      </UserContextProvider>
     </AuthContextProvider>
   </BrowserRouter>
 );

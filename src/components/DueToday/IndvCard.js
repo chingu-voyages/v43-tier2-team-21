@@ -4,7 +4,6 @@ const IndvCards = ({ skillName, sessionsCompleted, totalGoal }) => {
   const navigate = useNavigate();
   // const timeInHours = totalGoal * timeLeft;
   // const timeInMinutes = timeInHours * 60;
-  console.log(sessionsCompleted);
 
   const progressStyling = {
     right: 100 - (sessionsCompleted / totalGoal) * 100 + "%",

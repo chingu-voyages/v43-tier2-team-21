@@ -1,24 +1,24 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import InputSection from "./UI/InputSection";
-
+import { UserContext } from "../Store/UserContext";
 
 const initialState = {
   skillName: "",
   skillNameTouched: false,
   timeGoal: 0,
   timeGoalTouched: false,
-  pointGoal: 0,
-  pointGoalTouched: false,
+  sessionGoal: 0,
+  sessionGoalTouched: false,
 };
 
-const SkillForm = ({ prepopulatedData }) => {
+const SkillForm = ({ prepopulatedData, closeModal }) => {
+  const userCtx = React.useContext(UserContext);
   //-------------------------------------
   //Matt trying to pass skill-data as props from SkillCard.
   const location = useLocation();
   const data = location.state;
-  console.log(data);
-  if(data){
+  if (data) {
     prepopulatedData = data;
   }
   //--------------------------------------
@@ -26,22 +26,22 @@ const SkillForm = ({ prepopulatedData }) => {
   const [skillData, setSkillData] = React.useState(
     prepopulatedData ? prepopulatedData : initialState
   );
-  console.log(skillData)
   const [triedSubmit, setTriedSubmit] = React.useState(false);
 
   const {
     skillName,
     timeGoal,
-    pointGoal,
+    sessionGoal,
     skillNameTouched,
     timeGoalTouched,
-    pointGoalTouched,
+    sessionGoalTouched,
   } = skillData;
 
   const skillNameHasError = skillNameTouched && skillName.length === 0;
   const timeGoalHasError = timeGoalTouched && !timeGoal;
-  const pointGoalHasError = pointGoalTouched && !pointGoal;
-  const anyErrors = skillNameHasError || timeGoalHasError || pointGoalHasError;
+  const sessionGoalHasError = sessionGoalTouched && !sessionGoal;
+  const anyErrors =
+    skillNameHasError || timeGoalHasError || sessionGoalHasError;
 
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -58,28 +58,31 @@ const SkillForm = ({ prepopulatedData }) => {
       ...prev,
       skillNameTouched: true,
       timeGoalTouched: true,
-      pointGoalTouched: true,
+      sessionGoalTouched: true,
     }));
 
-    if (!timeGoal || !pointGoal || !skillNameTouched) {
+    if (!timeGoal || !sessionGoal || !skillNameTouched) {
       console.log("Error occured, no submit");
       setTriedSubmit(true);
       return;
     }
 
     console.log("Submitted");
-    // ... push to context array
+    userCtx.addSkill({ skillName, timeGoal, sessionGoal });
     setSkillData(initialState);
+    closeModal();
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <h2 className="text-lg font-bold">
-        {prepopulatedData ? `Edit Preferences for ${data.name}`  : "Add New Skill"}
+        {prepopulatedData
+          ? `Edit Preferences for ${data.name}`
+          : "Add New Skill"}
       </h2>
       <InputSection
         name="skillName"
-        placeholder= {prepopulatedData ? data.name : "e.g. piano"}
+        placeholder={prepopulatedData ? data.name : "e.g. piano"}
         value={skillName}
         label="Goal Name"
         hasError={skillNameHasError}
@@ -90,7 +93,7 @@ const SkillForm = ({ prepopulatedData }) => {
       />
       <InputSection
         name="timeGoal"
-        placeholder= {prepopulatedData ? data.timeGoal : "e.g. 3"}
+        placeholder={prepopulatedData ? data.timeGoal : "e.g. 3"}
         value={timeGoal}
         label="How much time would you like to practice a session?"
         hasError={timeGoalHasError}
@@ -102,11 +105,11 @@ const SkillForm = ({ prepopulatedData }) => {
         max={14}
       />
       <InputSection
-        name="pointGoal"
-        placeholder= {prepopulatedData ? data.sessionsGoal : "e.g. 5"}
-        value={pointGoal}
+        name="sessionGoal"
+        placeholder={prepopulatedData ? data.sessionsGoal : "e.g. 5"}
+        value={sessionGoal}
         label="How many times a week would you like to practice?"
-        hasError={pointGoalHasError}
+        hasError={sessionGoalHasError}
         changeHandler={handleChange}
         blurHandler={handleBlur}
         error="Please enter a value"

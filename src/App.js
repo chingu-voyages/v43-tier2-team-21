@@ -1,5 +1,4 @@
 import React from "react";
-import { UserContextProvider } from "./Store/UserContext";
 import Dashboard from "./pages/Dashboard";
 import LandingPage from "./pages/LandingPage";
 import { Routes, Route } from "react-router";
@@ -14,10 +13,9 @@ export default function App() {
   function toggleAdding() {
     setShowAddModal((prev) => !prev);
   }
-  console.log(showAddModal);
 
   return (
-    <UserContextProvider>
+    <>
       <NavBar toggleAdding={toggleAdding} />
       <Routes>
         <Route path="/landingpage" element={<LandingPage />} />
@@ -43,6 +41,6 @@ export default function App() {
           }
         />
       </Routes>
-    </UserContextProvider>
+    </>
   );
 }

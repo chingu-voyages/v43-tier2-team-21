@@ -8,7 +8,7 @@ const CreateSkillModal = ({ toggleAdding }) => {
       onClick={toggleAdding}
       className="bg-sky-100 rounded-lg text-center w-800 p-8"
     >
-      <SkillForm />
+      <SkillForm closeModal={toggleAdding} />
     </Modal>
   );
 };
