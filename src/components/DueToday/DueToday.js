@@ -1,4 +1,6 @@
 import IndvCards from "./IndvCard";
+import React from "react";
+import { UserContext } from "../../Store/UserContext";
 
 function compareDate(date) {
   const days = [
@@ -20,22 +22,18 @@ function compareDate(date) {
 }
 
 const DueToday = () => {
-  const fakeData = [
-    { skillName: "Piano", sessionsCompleted: 2, totalGoal: 3 },
-    { skillName: "Spanish", sessionsCompleted: 1, totalGoal: 5 },
-    { skillName: "Violin", sessionsCompleted: 1, totalGoal: 2 },
-  ];
+  const userCtx = React.useContext(UserContext);
 
   const globalDueDate = "Friday";
 
   //   Would receive globalDueDate and fakeData from context
 
-  const indvCards = fakeData.map((skill) => (
+  const indvCards = userCtx.skills.map((skill) => (
     <IndvCards
       key={skill.skillName}
       skillName={skill.skillName}
       sessionsCompleted={skill.sessionsCompleted}
-      totalGoal={skill.totalGoal}
+      sessionGoal={skill.sessionGoal}
     />
   ));
 

@@ -68,7 +68,12 @@ const SkillForm = ({ prepopulatedData, closeModal }) => {
     }
 
     console.log("Submitted");
-    userCtx.addSkill({ skillName, timeGoal, sessionGoal });
+    userCtx.addSkill({
+      skillName,
+      timeGoal,
+      sessionGoal,
+      sessionsCompleted: 0,
+    });
     setSkillData(initialState);
     closeModal();
   };
