@@ -1,25 +1,21 @@
 import React from "react";
-import { UserContextProvider } from "./Store/UserContext";
 import Dashboard from "./pages/Dashboard";
 import LandingPage from "./pages/LandingPage";
 import { Routes, Route } from "react-router";
 import SkillForm from "./components/SkillForm";
-import Timer from "./components/Timer"
+import Timer from "./components/Timer";
 import NavBar from "./components/NavBar";
 import AuthForm from "./components/Auth";
-import CreateSkillModal from "./components/Modals/CreateSkillModal";
-
 
 export default function App() {
-  const [showAddModal, setShowAddModal] = React.useState(false); 
+  const [showAddModal, setShowAddModal] = React.useState(false);
 
   function toggleAdding() {
     setShowAddModal((prev) => !prev);
   }
-  console.log(showAddModal);
 
   return (
-    <UserContextProvider>
+    <>
       <NavBar toggleAdding={toggleAdding} />
       <Routes>
         <Route path="/landingpage" element={<LandingPage />} />
@@ -45,6 +41,6 @@ export default function App() {
           }
         />
       </Routes>
-    </UserContextProvider>
+    </>
   );
 }
