@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router";
 
-const IndvCards = ({ skillName, timeLeft, totalGoal }) => {
+const IndvCards = ({ skillName, sessionsCompleted, sessionGoal }) => {
   const navigate = useNavigate();
-  const timeInHours = totalGoal * timeLeft;
-  const timeInMinutes = timeInHours * 60;
+  // const timeInHours = totalGoal * timeLeft;
+  // const timeInMinutes = timeInHours * 60;
 
   const progressStyling = {
-    right: timeLeft * 100 + "%",
+    right: 100 - (sessionsCompleted / sessionGoal) * 100 + "%",
   };
 
   function transport() {
@@ -24,10 +24,11 @@ const IndvCards = ({ skillName, timeLeft, totalGoal }) => {
       ></div>
       <h3 className="font-bold">{skillName}</h3>
       <p>
-        <span className="font-bold">Time Remaining:</span>
-        {timeInMinutes < 60
+        <span className="font-bold">Sessions Remaining: </span>
+        {sessionGoal - sessionsCompleted} / {sessionGoal}
+        {/* {timeInMinutes < 60
           ? ` ${timeInMinutes} minutes`
-          : ` ${timeInHours} hours`}
+          : ` ${timeInHours} hours`} */}
       </p>
     </article>
   );

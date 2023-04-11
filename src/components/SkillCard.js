@@ -1,21 +1,21 @@
 import { Link } from "react-router-dom";
 
 export const SkillCard = ({ id, skillData }) => {
-  const { name, sessionsGoal, sessionsCompleted } = skillData;
+  const { skillName, sessionGoal, sessionsCompleted } = skillData;
 
   return (
     <div
       className={`box-border h-60 w-60 m-2 grid content-evenly justify-center border border-black rounded-lg bg-sky-100 shadow-md font-serif`}
     >
-      <h1 className={`text-3xl text-center`}>{name}</h1>
+      <h1 className={`text-3xl text-center`}>{skillName}</h1>
       <div className={`text-3xl text-center`}>
-        {sessionsCompleted} / {sessionsGoal}
+        {sessionsCompleted ? sessionsCompleted : "0"} / {sessionGoal}
       </div>
       <div className={`h-8 w-48 flex justify-evenly`}>
         <Link to={`/edit/:${id}`} state={skillData}>
           <EditButton />
         </Link>
-        <Link to={`/practice/${name}`}>
+        <Link to={`/practice/${skillName}`}>
           <StartButton />
         </Link>
       </div>
