@@ -41,4 +41,4 @@ This project was created by the hard work of the following people:
 - [Matt Reuter](https://github.com/MattRueter) 
 - [Paul Melton](https://github.com/Melton-Paul)
 - [Parveen Kaur](https://github.com/Pavubrar)
-- Daniel O
+- [Daniel Ogunlana](https://github.com/Daniel-ipymb)
