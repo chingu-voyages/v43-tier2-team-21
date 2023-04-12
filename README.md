@@ -3,7 +3,7 @@
 ## Overview
 This app allows you to track your progress as you learn a new skill. This app was created for the Chingu Voyage 43 by Team 21, and was a Tier 2 level project.
 
-**Check out the live site:** [Skill Tracker](https://skill-tracker-b900e.firebaseapp.com/)
+**Check out the live site here:** [Skill Tracker](https://skill-tracker-b900e.firebaseapp.com/)
 
 
 ## Features
