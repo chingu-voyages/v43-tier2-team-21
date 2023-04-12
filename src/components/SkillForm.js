@@ -2,6 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import InputSection from "./UI/InputSection";
 import { UserContext } from "../Store/UserContext";
+import { nanoid } from "nanoid";
 
 const initialState = {
   skillName: "",
@@ -67,8 +68,8 @@ const SkillForm = ({ prepopulatedData, closeModal }) => {
       return;
     }
 
-    console.log("Submitted");
     userCtx.addSkill({
+      id: nanoid(),
       skillName,
       timeGoal,
       sessionGoal,
