@@ -6,15 +6,11 @@ import time from "../../images/time.png"
 
 const Features = () => {
   return (
-    <section className="bg-gray-100 pt-20 pb-40">
+    <section className="bg-gray-200 pt-20 pb-40">
       <h2 className="text-center text-2xl font-bold">Features</h2>
-      <div className="flex justify-evenly items-center text-purple-900">
+      <div className="flex justify-evenly items-center text-purple-900 sm:flex-wrap lg:flex-nowrap">
         <div className="p-20 flex flex-col">
-          <img
-            src={ multiple}
-            alt=""
-            className="w-20 self-center mb-5"
-          />
+          <img src={multiple} alt="" className="w-20 self-center mb-5" />
           <h2 className="text-center text-xl mb-3">
             Ability to Track Multiple Skills
           </h2>
@@ -30,11 +26,7 @@ const Features = () => {
           </a>
         </div>
         <div className="p-20 flex flex-col">
-          <img
-            src={time}
-            alt=""
-            className="w-20 self-center mb-5"
-          />
+          <img src={time} alt="" className="w-20 self-center mb-5" />
           <h2 className="text-center text-xl mb-3">
             Log Amount of Time Spent on Each Skill
           </h2>
@@ -50,11 +42,7 @@ const Features = () => {
           </a>
         </div>
         <div className="p-20 flex flex-col">
-          <img
-            src={progress}
-            alt=""
-            className="w-20 self-center mb-5"
-          />
+          <img src={progress} alt="" className="w-20 self-center mb-5" />
           <h2 className="text-center text-xl mb-3">
             Track Your Progress on Each Skill
           </h2>
