@@ -135,7 +135,7 @@ export default function AuthForm() {
   return (
     <section
       style={style}
-      className="bg-sky-100 max-w-lg mx-auto rounded p-10 mt-20 pt-20"
+      className="bg-purple-200 max-w-lg mx-auto rounded p-10 mt-20 pt-20"
     >
       <h1 className="font-bold text-2xl mb-3">
         {isLogin ? "Welcome Back" : "Sign Up"}
@@ -169,7 +169,7 @@ export default function AuthForm() {
         </div>
         {error && <p className={""}>{getErrorMessage()}</p>}
         {!loading ? (
-          <Button className="bg-yellow-100 my-3">
+          <Button className="bg-green-300/75 my-3">
             {isLogin ? "Login" : "Create Account"}
           </Button>
         ) : (

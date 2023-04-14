@@ -14,7 +14,7 @@ const NavBar = ({ toggleAdding }) => {
   }
 
   return (
-    <nav className="flex justify-between items-center text-xl p-4">
+    <nav className="flex justify-between items-center text-xl p-4 shadow-md">
       <Link
         to="/dashboard"
         className="sm:text-xl logo md:text-4xl font-extrabold"
