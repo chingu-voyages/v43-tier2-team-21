@@ -24,10 +24,10 @@ export const SkillCardContainer = ({ toggleAdding }) => {
     return (
       <section>
         <div className="flex justify-between items-center py-3 mb-3">
-          <h2 className=" text-3xl">{user}'s Skills</h2>
+          <h2 className="p-3 text-xl md:text-3xl">{user}'s Skills</h2>
           <AddskillBtn toggleAdding={toggleAdding} />
         </div>
-        <div className="flex overflow-x-auto max-w-5xl scroll pb-4">
+        <div className="flex flex-col items-center md:flex-row justify-center overflow-x-auto max-w-5xl scroll pb-4">
           {skillCards}
         </div>
       </section>

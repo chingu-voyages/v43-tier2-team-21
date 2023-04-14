@@ -5,13 +5,13 @@ export const SkillCard = ({ id, skillData }) => {
 
   return (
     <div
-      className={`box-border h-60 w-60 m-2 grid content-evenly justify-center border border-black rounded-lg bg-sky-100 shadow-md font-serif`}
+      className={`px-20 box-border h-30 w-2 md:h-60 md:w-60 m-2 grid content-evenly justify-center border border-black rounded-lg bg-purple-100 shadow-md`}
     >
-      <h1 className={`text-3xl text-center`}>{skillName}</h1>
-      <div className={`text-3xl text-center`}>
-        {sessionsCompleted ? sessionsCompleted : "0"} / {sessionGoal}
+      <h1 className={`text-xl md:text-3xl text-center`}>{skillName}</h1>
+      <div className={`text-xl md:text-3xl text-center`}>
+        {sessionsCompleted ? sessionsCompleted : '0'} / {sessionGoal}
       </div>
-      <div className={`h-8 w-48 flex justify-evenly`}>
+      <div className={`h-8  flex justify-evenly`}>
         <Link to={`/edit/:${id}`} state={skillData}>
           <EditButton />
         </Link>
