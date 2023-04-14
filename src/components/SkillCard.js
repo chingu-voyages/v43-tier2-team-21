@@ -5,7 +5,7 @@ export const SkillCard = ({ id, skillData }) => {
 
   return (
     <div
-      className={`px-20 box-border h-30 w-2 md:h-60 md:w-60 m-2 grid content-evenly justify-center border border-black rounded-lg bg-purple-100 shadow-md`}
+      className={`px-20 box-border h-30 w-2 md:h-56 md:w-56 m-2 grid content-evenly justify-center border border-black rounded-lg bg-purple-100 shadow-md`}
     >
       <h1 className={`text-xl md:text-3xl text-center`}>{skillName}</h1>
       <div className={`text-xl md:text-3xl text-center`}>
