@@ -15,7 +15,7 @@ export const SkillCard = ({ id, skillData }) => {
         <Link to={`/edit/:${id}`} state={skillData}>
           <EditButton />
         </Link>
-        <Link to={`/practice/${skillName}`}>
+        <Link to={`/practice/${id}`}>
           <StartButton />
         </Link>
       </div>

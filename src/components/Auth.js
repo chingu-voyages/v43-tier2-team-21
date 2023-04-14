@@ -5,9 +5,19 @@ import AuthContext from "../Store/AuthContext";
 import Button from "./UI/Button/Button";
 import InputSection from "./UI/InputSection";
 import loadingImg from "../images/progress.png";
+import { useLocation } from "react-router-dom";
 
 export default function AuthForm() {
-  const [isLogin, setIsLogin] = React.useState(true);
+  //----------------------------------------------------
+  //quick fix to check if AuthForm being called from <signup> button on Hero
+  //or <login> button on navbar
+  //isLogin than gets set to either true or false
+  //params on Links might be a better solution
+  let login;
+  const location = useLocation();
+  location.state ? login=false : login=true;
+  //----------------------------------------------------
+  const [isLogin, setIsLogin] = React.useState(login);
   const [error, setError] = React.useState("");
   const [loading, setLoading] = React.useState(false);
   const authCtx = React.useContext(AuthContext);

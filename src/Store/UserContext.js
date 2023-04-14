@@ -13,6 +13,19 @@ export function UserContextProvider(props) {
     setSkills((prev) => [...prev, obj]);
   };
 
+  const updateSessions = (id) => {
+    setSkills((prev) => {
+      return prev.map((skill) =>
+        skill.id === id
+          ? {
+              ...skill,
+              sessionsCompleted: skill.sessionsCompleted + 1,
+            }
+          : skill
+      );
+    });
+  };
+
   useEffect(() => {
     if (!isLoggedIn) {
       setUser("");
@@ -57,6 +70,7 @@ export function UserContextProvider(props) {
     addSkill,
     skills,
     user,
+    updateSessions,
   };
 
   return (

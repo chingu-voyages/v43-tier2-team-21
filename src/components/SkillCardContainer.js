@@ -9,7 +9,7 @@ export const SkillCardContainer = ({ toggleAdding }) => {
   //checks if user has no skills (i.e. new user)
 
   const skillCards = skills.map((skill, index) => {
-    return <SkillCard key={index} id={index} skillData={skill} />;
+    return <SkillCard key={index} id={skill.id} skillData={skill} />;
   });
   // if(skills){
   //   Skills =Object.entries(skills).map((obj)=>obj[1])
