@@ -31,10 +31,11 @@ const DueToday = () => {
 
   const indvCards = userCtx.skills.map((skill) => (
     <IndvCards
-      key={skill.skillName}
+      key={skill.id}
       skillName={skill.skillName}
       sessionsCompleted={skill.sessionsCompleted}
       sessionGoal={skill.sessionGoal}
+      id={skill.id}
     />
   ));
 

@@ -2,6 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import InputSection from "./UI/InputSection";
 import { UserContext } from "../Store/UserContext";
+import { nanoid } from "nanoid";
 
 const initialState = {
   skillName: "",
@@ -67,8 +68,8 @@ const SkillForm = ({ prepopulatedData, closeModal }) => {
       return;
     }
 
-    console.log("Submitted");
     userCtx.addSkill({
+      id: nanoid(),
       skillName,
       timeGoal,
       sessionGoal,
@@ -100,7 +101,7 @@ const SkillForm = ({ prepopulatedData, closeModal }) => {
         name="timeGoal"
         placeholder={prepopulatedData ? data.timeGoal : "e.g. 3"}
         value={timeGoal}
-        label="How much time would you like to practice a session?"
+        label="How many minutes would you like to practice per session?"
         hasError={timeGoalHasError}
         changeHandler={handleChange}
         blurHandler={handleBlur}
@@ -113,7 +114,7 @@ const SkillForm = ({ prepopulatedData, closeModal }) => {
         name="sessionGoal"
         placeholder={prepopulatedData ? data.sessionsGoal : "e.g. 5"}
         value={sessionGoal}
-        label="How many times a week would you like to practice?"
+        label="How many times would you like to practice per week?"
         hasError={sessionGoalHasError}
         changeHandler={handleChange}
         blurHandler={handleBlur}
@@ -125,7 +126,7 @@ const SkillForm = ({ prepopulatedData, closeModal }) => {
       {triedSubmit && anyErrors && (
         <p className="mb-2">Please fix issues above before submitting.</p>
       )}
-      <button className="bg-white p-2 rounded shadow-sm hover:bg-yellow-100">
+      <button className="bg-green-300/50 p-2 rounded shadow-sm hover:bg-green-400">
         {prepopulatedData ? "Save changes" : "Add Skill"}
       </button>
     </form>
