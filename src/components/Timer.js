@@ -12,7 +12,7 @@ function tempTime(timeGoal) {
   return tempTime;
 }
 
-const Timer = ({ expiryTimestamp =tempTime()  }) => {
+const Timer = ({ expiryTimestamp =tempTime()}) => {
   const userCtx = useContext(UserContext);
   const location = useLocation();
   const id = location.pathname.substring(
@@ -20,8 +20,7 @@ const Timer = ({ expiryTimestamp =tempTime()  }) => {
   );
 
   const skill = userCtx.skills.find((skill) => skill.id === id);
-
-    const timeGoal = skill.timeGoal
+  const timeGoal = skill.timeGoal
 
   const { seconds, minutes, isRunning, start, pause, resume, restart } =
     useTimer({
@@ -29,10 +28,10 @@ const Timer = ({ expiryTimestamp =tempTime()  }) => {
       autoStart: false,
       onExpire: () => userCtx.updateSessions(id),
     });
+  
   const [hasStarted, setHasStarted] = React.useState(false);
-
   React.useEffect(() => {
-    if (minutes !== 5) {
+    if (minutes != timeGoal) {
       setHasStarted(true);
     } else {
       setHasStarted(false);
@@ -54,7 +53,7 @@ const Timer = ({ expiryTimestamp =tempTime()  }) => {
             Start
           </button>
         )}
-        {isRunning && (
+        {hasStarted && isRunning &&(
           <button
             className="mx-2 bg-red-300 p-5 rounded-md hover:opacity-80"
             onClick={pause}
@@ -62,7 +61,7 @@ const Timer = ({ expiryTimestamp =tempTime()  }) => {
             Pause
           </button>
         )}
-        {!isRunning && hasStarted && (
+        {hasStarted && !isRunning&&(
           <button
             className="mx-2 bg-green-300 p-5 rounded-md hover:opacity-80"
             onClick={resume}
@@ -73,7 +72,7 @@ const Timer = ({ expiryTimestamp =tempTime()  }) => {
         {hasStarted && (
           <button
             className="mx-2 bg-blue-300 p-5 rounded-md hover:opacity-80"
-            onClick={() => restart(tempTime(), false)}
+            onClick={() => restart(tempTime(timeGoal), false)}
           >
             Restart
           </button>
