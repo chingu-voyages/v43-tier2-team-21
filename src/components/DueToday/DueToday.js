@@ -25,7 +25,7 @@ function compareDate(date) {
 const DueToday = () => {
   const userCtx = React.useContext(UserContext);
 
-  const globalDueDate = "Friday";
+  const globalDueDate = "Today";
 
   //   Would receive globalDueDate and fakeData from context
 
