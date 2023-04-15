@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Button from "./UI/Button/Button";
 import AuthContext from "../Store/AuthContext";
 import { useNavigate } from "react-router-dom";
+import AssessmentOutlinedIcon from "@mui/icons-material/AssessmentOutlined";
 
 const NavBar = ({ toggleAdding }) => {
   const authCtx = React.useContext(AuthContext);
@@ -12,13 +13,13 @@ const NavBar = ({ toggleAdding }) => {
     navigate("/dashboard");
     toggleAdding();
   }
-
   return (
     <nav className="flex justify-between items-center text-xl p-4 shadow-md">
       <Link
         to="/dashboard"
         className="sm:text-xl logo md:text-4xl font-extrabold"
       >
+      <AssessmentOutlinedIcon className="stroke-1 mr-2 text-purple" />
         Skill Tracker
       </Link>
       <div className="links">

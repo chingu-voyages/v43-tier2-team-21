@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import heroImage from "../../images/skills2.png"
 
 
+
 const Hero = () => {
   return (
     <section className="flex items-center flex-col h-screen text-white bg-purple-600 py-40">
