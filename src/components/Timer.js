@@ -4,13 +4,15 @@ import { useLocation } from "react-router";
 import { useContext } from "react";
 import { UserContext } from "../Store/UserContext";
 
-function tempTime() {
+function tempTime(timeGoal) {
+  //deconstruct user input time from mins to seconds
+  timeGoal *=  60
   const tempTime = new Date();
-  tempTime.setSeconds(tempTime.getSeconds() + 300);
+  tempTime.setSeconds(tempTime.getSeconds() + timeGoal);
   return tempTime;
 }
 
-const Timer = ({ expiryTimestamp = tempTime() }) => {
+const Timer = ({ expiryTimestamp =tempTime()  }) => {
   const userCtx = useContext(UserContext);
   const location = useLocation();
   const id = location.pathname.substring(
@@ -19,9 +21,11 @@ const Timer = ({ expiryTimestamp = tempTime() }) => {
 
   const skill = userCtx.skills.find((skill) => skill.id === id);
 
+    const timeGoal = skill.timeGoal
+
   const { seconds, minutes, isRunning, start, pause, resume, restart } =
     useTimer({
-      expiryTimestamp,
+      expiryTimestamp: tempTime(timeGoal),
       autoStart: false,
       onExpire: () => userCtx.updateSessions(id),
     });
