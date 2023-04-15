@@ -38,9 +38,7 @@ const Testimonials = () => {
               minima quasi voluptates, magnam quisquam, voluptatibus vitae?"
             </p>
             <p className="mt-2 mb-10 text-right">-Testimonial Author</p>
-          </div>
-          <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-        </div>
+          <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
       </div>
     </section>
   );
