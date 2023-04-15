@@ -1,16 +1,23 @@
 import { Link } from "react-router-dom";
 
-export const SkillCard = ({id, skillData }) => {
-  const { name, sessionsGoal, sessionsCompleted } = skillData;
+export const SkillCard = ({ id, skillData }) => {
+  const { skillName, sessionGoal, sessionsCompleted } = skillData;
 
   return (
     <div
-      className={`box-border h-60 w-60 m-2 grid content-evenly justify-center border border-black rounded-lg bg-sky-100 shadow-md font-serif`}>
-      <h1 className={`text-3xl text-center`}>{name}</h1>
-      <div className={`text-3xl text-center`}> {sessionsCompleted} / {sessionsGoal} </div>
-      <div className={`h-8 w-48 flex justify-evenly`}>
-        <Link to={`/edit/:${id}`}  state={skillData}> <EditButton /></Link>
-        <Link to={"/timer"}> <StartButton /></Link>
+      className={`px-20 box-border h-30 w-2 md:h-56 md:w-56 m-2 grid content-evenly justify-center border border-black rounded-lg bg-purple-100 shadow-md`}
+    >
+      <h1 className={`text-xl md:text-3xl text-center`}>{skillName}</h1>
+      <div className={`text-xl md:text-3xl text-center`}>
+        {sessionsCompleted ? sessionsCompleted : '0'} / {sessionGoal}
+      </div>
+      <div className={`h-8  flex justify-evenly`}>
+        <Link to={`/edit/:${id}`} state={skillData}>
+          <EditButton />
+        </Link>
+        <Link to={`/practice/${id}`}>
+          <StartButton />
+        </Link>
       </div>
     </div>
   );

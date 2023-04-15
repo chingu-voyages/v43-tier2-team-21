@@ -1,4 +1,7 @@
 import IndvCards from "./IndvCard";
+import React from "react";
+import { UserContext } from "../../Store/UserContext";
+import emptyImage from "../../images/empty.png";
 
 function compareDate(date) {
   const days = [
@@ -20,29 +23,40 @@ function compareDate(date) {
 }
 
 const DueToday = () => {
-  const fakeData = [
-    { skillName: "Piano", timeLeft: 0.5, totalGoal: 3 },
-    { skillName: "Spanish", timeLeft: 0.33, totalGoal: 1 },
-    { skillName: "Violin", timeLeft: 0.33, totalGoal: 2 },
-  ];
+  const userCtx = React.useContext(UserContext);
 
   const globalDueDate = "Friday";
 
   //   Would receive globalDueDate and fakeData from context
 
-  const indvCards = fakeData.map((skill) => (
+  const indvCards = userCtx.skills.map((skill) => (
     <IndvCards
-      key={skill.skillName}
+      key={skill.id}
       skillName={skill.skillName}
-      timeLeft={skill.timeLeft}
-      totalGoal={skill.totalGoal}
+      sessionsCompleted={skill.sessionsCompleted}
+      sessionGoal={skill.sessionGoal}
+      id={skill.id}
     />
   ));
 
   return (
     <section className="w-full">
       <h2 className="text-2xl">Due {compareDate(globalDueDate)}</h2>
-      <section>{indvCards}</section>
+      <section>
+        {indvCards.length > 0 ? (
+          indvCards
+        ) : (
+          <>
+            <div className="flex items-center flex-col p-5">
+              <img src={emptyImage} alt="" className="max-w-md" />
+              <p className="font-bold text-lg">
+                You have nothing due yet because you haven't added any skills to
+                practice yet, create one now!
+              </p>
+            </div>
+          </>
+        )}
+      </section>
     </section>
   );
 };

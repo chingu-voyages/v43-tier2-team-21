@@ -1,6 +1,8 @@
 import React from "react";
 import { useTimer } from "react-timer-hook";
 import { useLocation } from "react-router";
+import { useContext } from "react";
+import { UserContext } from "../Store/UserContext";
 
 function tempTime() {
   const tempTime = new Date();
@@ -9,16 +11,19 @@ function tempTime() {
 }
 
 const Timer = ({ expiryTimestamp = tempTime() }) => {
+  const userCtx = useContext(UserContext);
   const location = useLocation();
-  const skillName = location.pathname.substring(
+  const id = location.pathname.substring(
     location.pathname.lastIndexOf("/") + 1
   );
+
+  const skill = userCtx.skills.find((skill) => skill.id === id);
 
   const { seconds, minutes, isRunning, start, pause, resume, restart } =
     useTimer({
       expiryTimestamp,
       autoStart: false,
-      onExpire: () => console.warn("onExpire called"),
+      onExpire: () => userCtx.updateSessions(id),
     });
   const [hasStarted, setHasStarted] = React.useState(false);
 
@@ -32,7 +37,7 @@ const Timer = ({ expiryTimestamp = tempTime() }) => {
 
   return (
     <div className="flex flex-col items-center py-40 bg-sky-300 text-white p-10 h-screen">
-      <h2 className="text-5xl underline">Practice {skillName}</h2>
+      <h2 className="text-5xl underline">Practice {skill.skillName}</h2>
       <div className="my-20 text-7xl">
         <span>{minutes}</span>:<span>{seconds}</span>
       </div>

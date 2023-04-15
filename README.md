@@ -1,14 +1,44 @@
-# voyage-tasks
+# Skill Tracker
 
-Your project's `readme` is as important to success as your code. For 
-this reason you should put as much care into its creation and maintenance
-as you would any other component of the application.
+## Overview
+This app allows you to track your progress as you learn a new skill. This app was created for the Chingu Voyage 43 by Team 21, and was a Tier 2 level project.
 
-If you are unsure of what should go into the `readme` let this article,
-written by an experienced Chingu, be your starting point - 
-[Keys to a well written README](https://tinyurl.com/yk3wubft).
+**Check out the live site here:** [Skill Tracker](https://skill-tracker-b900e.firebaseapp.com/)
 
-And before we go there's "one more thing"! Once you decide what to include
-in your `readme` feel free to replace the text we've provided here.
 
-> Own it & Make it your Own!
+## Features
+- Ability to track multiple skills at once
+- Progress bars on the dashboard show your progress at a glance
+- Track how long you would like each practice session to be
+- Track how many times you would like to practice each week
+- Log length of session on built in timer
+
+## Running the Project
+To run this project locally on your machine, follow these steps:
+1. Clone the repo: git clone <repo>
+2. run npm install (to install dependencies)
+3. run npm start  (to start dev server)
+
+It may be necessary for you to set up a Firebase account and api key for the app to work correctly. Please read the [docs](https://firebase.google.com/docs/?hl=en&authuser=0) for more information. 
+
+
+## Dependencies
+This project has the following dependencies:
+- React
+- React-timer-hook
+- Tailwind CSS
+- MUIicons
+- Firebase
+- Node.js
+- npm
+
+
+Dependencies worth listing are React, React-timer-hook, Tailwind, MUIicons, Firebase (maybe list node and npm).
+
+
+## Contributors: Who is team 21?
+This project was created by the hard work of the following people:
+- [Matt Reuter](https://github.com/MattRueter) 
+- [Paul Melton](https://github.com/Melton-Paul)
+- [Parveen Kaur](https://github.com/Pavubrar)
+- [Daniel Ogunlana](https://github.com/Daniel-ipymb)
